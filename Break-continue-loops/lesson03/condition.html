@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   Task1: ask the user to input the two exam marks:
+      var exam = parseInt(prompt('What is first exam marks ?', 0));
+      var exam2 = parseInt(prompt('What is second exam marks ?', 0));
+      //  Task2: find the average
+      var average = (exam + exam2) / 2;
+
+      switch (average) {
+        case average > 90 && average < 100:
+        case average > 80 && average < 90:
+          document.write(' good');
+          break;
+        default:
+          document.write('Something is wrong');
+          break;
+      }
+
+      /*
+Task3: based on the following:
+        Problem:
+
+        - scan/check the "average" value:
+
+        - if the average is 90+ AND less or equal to 100 (between 90 and 100)==> Excellent
+
+        - else if the average is 80+ AND less or equal to 89 (between 80 and 98)==> Very Good
+
+        - else if the average is 70+ AND less or equal to 79 ==> Good
+
+        - else if the average is 60+ AND less or equal to 69 ==> Satisfactory
+
+        - else if the average is 0+ and less than 60 ==> Fail
+
+        - else ==> Invalid Average Value
+
+
+
+
+        To solve this problem we need to use
+
+            "Logical Operator"
+
+            - AND ==> &&
+
+            - OR ==> ||
+
+            - NOT ==> !
+
+        */
+    </script>
+  </body>
+</html>

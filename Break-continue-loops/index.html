@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link>
+</head>
+
+<body>
+    <h1>Break and Continue loops</h1>
+
+
+    <script>
+
+
+        /*
+        
+            Problem Statement: Number Checker with Loop Control
+                Write a JavaScript program that asks the user to enter 5 numbers using a loop.
+
+                Your program should:
+
+                Skip any number that is negative using the continue statement.
+
+                If the user enters the number 0, the program should stop taking input immediately using the break statement.
+
+                For all valid positive numbers, the program should store them in an array.
+
+                Finally, print the array of valid positive numbers.
+
+                prompt -> loops -> array 
+
+                [5,-3,12,-1,0, 9]
+
+                negative -3 is skipped 
+
+                Found 0 so loops ended 
+
+                Sum = positive numbers 
+
+        */
+        var userInputs = [];
+        // for (var i = 0; i < 5; i++) {
+        while (userInputs.length < 5) {
+            var temp = prompt("Enter  a number");
+            console.log("Checking user input ", temp)
+            temp = parseInt(temp);
+            console.log("After parsing the number ", temp)
+            if (isNaN(temp)) {
+                // if it is not a number what do I need to do 
+                console.log("User input not a number")
+
+            } else {
+                // If it is a number what do I need to do 
+                if (temp < 0) {
+                    continue;
+                }
+
+                if (temp == 0) {
+                    break;
+                }
+
+                console.log("User input is a number", temp)
+                userInputs.push(temp)
+            }
+        }
+        console.log("This is user inputs ", userInputs);
+        console.log("This is the sum of the numbers ", eval(userInputs.join("+")));
+
+    </script>
+</body>
+
+</html>

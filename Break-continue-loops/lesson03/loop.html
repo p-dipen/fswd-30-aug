@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <button onclick="timerStart()">Timer Start</button>
+    <script>
+      // declare the variable
+      function timerStart() {
+        console.log('Loop is going to start');
+        for (let loopCounter = 1; loopCounter <= 60; loopCounter++) {
+          console.log('Loop is loopCounter =' + loopCounter);
+          setTimeout(() => {
+            ((loopCounter) => {
+              document.getElementById('clock').innerHTML = loopCounter;
+            })(loopCounter);
+          }, loopCounter * 1000);
+        }
+        console.log('Loop is end');
+      }
+    </script>
+  </body>
+</html>
