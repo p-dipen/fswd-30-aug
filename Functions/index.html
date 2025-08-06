@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+            function FUNCTIONNAME (/..parameters../) {
+                // block of code
+
+                return output result;
+            }
+        */
+
+        function convertToCentigrate(degFahren) {
+            console.log("Calling convertToCentigrate Function and degFahren is ", degFahren);
+            var degCent = (degFahren - 32) * (5 / 9);
+            console.log("After converting fahren to centigrate ", degCent);
+
+            return degCent;
+        }
+
+        var FahrenRoom = 72;
+
+        console.log(convertToCentigrate(FahrenRoom))
+
+        /*
+        - alert() - func
+        - prompt() - func
+        - parseInt() - func
+        - document.write() - method
+        - console.log() - method
+
+
+        Method and Function: 
+
+        Function: is just a function name by itself 
+
+        Method: is a function attached to an "object" using the "dot" notation
+
+        */
+
+        // document.write("<h1>Here is my major texxt</h1>"); // One argument
+        // document.write(); // nothing (no arguments) =>> 
+
+        /*
+            Let's create a function to print any simple text
+        */
+        // function viewText(inputText) {
+        //     if (inputText == undefined) {
+        //         inputText = "No arguments passed"
+        //     }
+        //     document.write("<h1>" + inputText + "</h1>");
+        // }
+
+
+        // viewText("I like javascript"); // Trigger call our function 
+        // viewText("I");
+        // viewText("want");
+        // viewText("BMW X5");
+        // viewText();
+
+
+
+        /*
+        Problem:
+        What if we want our function to print a text but with any HTML element we specify
+        because we don't always to use p element:
+
+        let's name our new function "display()":
+        - The user can pass to it any text/data they want to print
+        - If the user wants to specify the html element, he needs to pass this element to the function
+
+        Idea Example:
+        when we call this function,
+        we can pass the text/string value of "Here is my another more advanced function!"
+        then we can pass for example:
+        - h1 => if we want to enclose our text with h1 element
+        - h2 => if we want to enclose our text with h2 element
+        - p => if we want to enclose our text with p element
+        - and so on...
+
+        Coding Example:  calling the function:
+        > display("Learning JavaScript","h2");
+        > should output: <h2>Learning JavaScript</h2>
+
+        > display("I hope that you like JavaScript","p");
+        > should output: <p>Learning JavaScript</p>
+
+        > display("JavaScript is very important","span");
+        > should output: <span>JavaScript is very important/span>
+
+        > display("PHP will be our back-end programming language","div")
+        > should output: <div>PHP will be our back-end programming language</div>
+        */
+
+
+        function display(inputText, element) {
+            if (inputText == undefined) {
+                inputText = "No arguments passed"
+            }
+            document.write("<" + element + ">" + inputText + "</" + element + ">");
+        }
+
+        display("Learning JavaScript", "h2");
+        display("I hope that you like JavaScript", "p");
+        display("JavaScript is very important", "span");
+        display("PHP will be our back-end programming language", "div")
+    </script>
+</body>
+
+</html>

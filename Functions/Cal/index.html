@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Cal</title>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <input placeholder="value1" id="input1" type="number" />
+    <select id="userOp">
+        <option value="+">+ Addition</option>
+        <option value="-">- Subs</option>
+        <option value="*">* Multi</option>
+        <option value="/">/ Divi</option>
+    </select>
+    <input placeholder="value2" id="input2" type="number" />
+    <button id="button">Result</button>
+    <div id="result"></div>
+    <script>
+        function addNumbers(x, y) {
+            var add = x + y;
+            return add;
+        }
+
+        function subNumbers(x, y) {
+            return x - y;
+        }
+
+        function mulNumbers(x, y) {
+            return x * y;
+        }
+
+        function divNumbers(x, y) {
+            return x / y;
+        }
+
+        document.getElementById("button").addEventListener("click", cal);
+        // Return statement - Terminate the function execution (It can return a value also)
+        function cal() {
+            var result = 0;
+            // Chaining 
+            var x = parseInt(document.getElementById("input1").value);
+            /*
+                Step 1 : document -> object 
+                Step 2 : this document object will have a method getElementByid which is return a new object (Element object)
+                Step 3 : We are going to use value proporty of this element object 
+            */
+            var y = parseInt(document.getElementById("input2").value);
+            var userOp = document.getElementById("userOp").value;
+
+            if (isNaN(x)) {
+                console.error("Input1 is empty");
+                document.getElementById("result").innerHTML = "<span style='color: red;'>Input1 is empty</span>";
+                return;
+            }
+
+            if (isNaN(y)) {
+                console.error("Input2 is empty");
+                document.getElementById("result").innerHTML = "<span style='color: red;'>Input2 is empty</span>"
+                return;
+            }
+
+            /*
+                switch(parameter) {
+                    case value:
+                        // block of code 
+                        break;
+                    case value2:
+                        // block of code 
+                        break;
+                    default:
+                        // block of code 
+                        break;
+                }
+            */
+            switch (userOp) {
+                case "+":
+                    result = addNumbers(x, y);
+                    break;
+                case "-":
+                    result = subNumbers(x, y);
+                    break;
+                case "*":
+                    result = mulNumbers(x, y);
+                    break;
+                default:
+                    result = divNumbers(x, y);
+                    break;
+            }
+            document.getElementById("result").innerHTML = `<span style='color: green;'>${result} this is the result<span>`
+        }
+    </script>
+</body>
+
+</html>
