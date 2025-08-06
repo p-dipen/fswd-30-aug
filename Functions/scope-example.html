@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope example</title>
+</head>
+
+<body>
+    <script>
+        // THis is global scope 
+        // What is document, window ? -- global object 
+        // x variable , Declare and assign a value 
+
+        var x = 10;
+        let z3 = 30; // Global variable - in global scope
+        {
+            // Block of code of this brackets
+            // brackets scope
+            var y1 = 20;
+            console.log("x in block scope ", x);
+            console.log("z3 in block scope ", z3);
+            // Variables declared with let are block-scoped. This means they are only accessible within the specific block (defined by curly braces {}) where they are declared.
+            let z1 = 30;
+            console.log("z1 in block scope ", z1);
+
+        }
+
+        function myAddition() {
+            // function scope - local scope 
+            var y2 = 20;
+            console.log("x in functional scope ", x);
+            console.log("y1 in functional scope ", y1);
+            // console.log("z1 in functional scope ", z1);
+            console.log("z3 in functional scope ", z3);
+            let z2 = 30;
+        }
+        myAddition();
+        console.log("Accessing value of x : ", x);
+        console.log("Accessing value of y1 : ", y1);
+        // console.log("Accessing value of y2 : ", y2);
+        console.log("Accessing value of z1 : ", z1);
+        console.log("Accessing value of z2 : ", z2);
+
+    </script>
+</body>
+
+</html>
