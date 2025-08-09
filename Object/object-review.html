@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Object ?</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Object have - properties and methods 
+
+            In real life 
+            I.e. 
+            "dog" as an object 
+            - specification (specs): tail, white 
+            - Actions: bark, bit, wag
+            
+            
+            - specifications (specs) => properties 
+            - actions => methods
+
+            for example: "document" is an object that represts the current webpage
+
+            "document" object has:
+            - properties: title
+            - method: write() => 
+
+            dot notation:
+            objectName.propertyName => document.title
+            objectName.methodName() => document.write()
+        */
+
+        // Calling the title property of the document and save it into a js variable 
+
+        var myPageTitle = document.title;
+
+        document.write(`My page title is ${myPageTitle}<br>`)
+
+        // used alert() function ? 
+        // alert("This is a alert box");
+        // window.alert("This is a alert box2");
+
+        var examMarks = [90, 88, 87, 91, 90, 20, 40]; // declaring with data type - array 
+
+        // I want to print marks on my screen using loop 
+        // for (var i = 0; i < examMarks.length; i++) {
+        //     document.write("Exam marks i :", i, " and mark is ", examMarks[i], "<br>");
+        // }
+
+        var arr = [1, 2, 3, 4];
+
+        /*
+            This is for future reference only 
+                new is keyword to declare or construct the object 
+                JavaScript provides several built-in constructors:
+                    new Array() – creates a new array
+                    new Object() – creates a new object
+                    new Date() – creates a new date object
+                    new RegExp() – creates a regular expression
+        */
+        var arr1 = new Array(1, 2, 3, 4);
+        var str = new String("dipen");
+        var num = new Number(10);
+        console.log(arr);
+        console.log(arr1);
+
+
+        /*
+            create my own custom object:
+            The syntax (template) to create our own/custom object:
+            1. 
+                let/const/var objectName = {} // curly  brackets 
+
+            2. 
+                let/const/var objectName = new Object() // this is built in constructor 
+
+
+            How to define a property in object. 
+            var objectName = {
+                propertyName1: property1Value,
+                propertyName2: property2Value,
+                propertyName3: property3Value
+            }
+        */
+
+        // using array for such type of information is not understandable and also not clear to reader 
+        var carInfoArr = ["Martin", "2017", 4, "white", 30000];
+
+        // creating our "carObj" object:
+
+        var carObj = {
+            /*
+                Object is based on keys and values:
+
+                Notice that each key-value pair is separated by comma
+
+                A value can be any data type: boolean, function, string, integer and even other objects
+            */
+            owner: "Martin",
+            year: "2017",
+            wheels: 4,
+            km: 30000,
+            name: "speedy",
+            color: "red"
+        }
+
+
+        console.log(carObj);
+        /*
+            Object
+            color: "White"
+            km: 30000
+            name: "speedy"
+            owner: "Martin"
+            wheels: 4
+            year: 2017
+        */
+        // document.write("<p>This car " + carObj.name + ", it belongs to " + carObj.owner + " the car year model is " + carObj.year + ". Its color is: " + carObj.color + ", " + carObj.wheels + " wheel-drive" + ", and finally they used for " + carObj.km + " km.</p>"); // [object Object]
+
+        /*
+        Task: Declare and Use Object Properties (Book Example)
+        Objective:
+        Create an object named book with the following properties:
+            title (string)
+            author (string)
+            yearPublished (number)
+            genre (string)
+        Then, print each property of the object to the console.
+
+        */
+        // var book2 = {
+        //     title: "The Mystery of the Lost Island",
+        //     author: "Avery Stone",
+        //     yearPublished: 2021,
+        //     genre: "Adventure"
+        // }
+
+        // document.write(`<h2>Book Information </h2>`);
+        // document.write("<ul>");
+        // document.write("<li>Title: " + book.title + "</li>");
+        // document.write("<li>Author: " + book.author + "</li>");
+        // document.write("<li>Year Published: " + book.yearPublished + "</li>");
+        // document.write("<li>Genre: " + book.genre + "</li>");
+        // document.write("</ul>");
+
+        var bookArr = [{ // Array of objects 
+            title: "The Mystery of the Lost Island",
+            author: "Avery Stone",
+            yearPublished: 2021,
+            genre: "Adventure"
+        }, {
+            title: "Echoes of Tomorrow",
+            author: "Lena Rivers",
+            yearPublished: 2019,
+            genre: "Science Fiction"
+        }, {
+            title: "Whispers in the Library",
+            genre: "Mystery",
+            author: "Caleb Frost",
+            yearPublished: 2023,
+        },
+        {
+            author: "Mira Lane",
+            genre: "Philosophy",
+            yearPublished: 2018,
+            title: "The Art of Stillness",
+        }
+
+        ]
+
+        for (var i = 0; i < bookArr.length; i++) {
+            var book = bookArr[i];
+            document.write(`<h2>Book Information - ${i + 1}</h2>`);
+            document.write("<ul>");
+            document.write("<li>Title: " + book.title + "</li>");
+            document.write("<li>Author: " + book.author + "</li>");
+            document.write("<li>Year Published: " + book.yearPublished + "</li>");
+            document.write("<li>Genre: " + book.genre + "</li>");
+            document.write("</ul>");
+        }
+    </script>
+</body>
+
+</html>
