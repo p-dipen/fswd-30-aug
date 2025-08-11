@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Object ?</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Object have - properties and methods 
+
+            In real life 
+            I.e. 
+            "dog" as an object 
+            - specification (specs): tail, white 
+            - Actions: bark, bit, wag
+            
+            
+            - specifications (specs) => properties 
+            - actions => methods
+
+            for example: "document" is an object that represts the current webpage
+
+            "document" object has:
+            - properties: title
+            - method: write() => 
+
+            dot notation:
+            objectName.propertyName => document.title
+            objectName.methodName() => document.write()
+        */
+
+        // Calling the title property of the document and save it into a js variable 
+
+        var myPageTitle = document.title;
+
+        document.write(`My page title is ${myPageTitle}<br>`)
+
+        // used alert() function ? 
+        // alert("This is a alert box");
+        // window.alert("This is a alert box2");
+
+        var examMarks = [90, 88, 87, 91, 90, 20, 40]; // declaring with data type - array 
+
+        // I want to print marks on my screen using loop 
+        // for (var i = 0; i < examMarks.length; i++) {
+        //     document.write("Exam marks i :", i, " and mark is ", examMarks[i], "<br>");
+        // }
+
+        var arr = [1, 2, 3, 4];
+
+        /*
+            This is for future reference only 
+                new is keyword to declare or construct the object 
+                JavaScript provides several built-in constructors:
+                    new Array() – creates a new array
+                    new Object() – creates a new object
+                    new Date() – creates a new date object
+                    new RegExp() – creates a regular expression
+        */
+        var arr1 = new Array(1, 2, 3, 4);
+        var str = new String("dipen");
+        var num = new Number(10);
+        // console.log(arr);
+        // console.log(arr1);
+
+
+        /*
+            create my own custom object:
+            The syntax (template) to create our own/custom object:
+            1. 
+                let/const/var objectName = {} // curly  brackets 
+
+            2. 
+                let/const/var objectName = new Object() // this is built in constructor 
+
+
+            How to define a property in object. 
+            var objectName = {
+                propertyName1: property1Value,
+                propertyName2: property2Value,
+                propertyName3: property3Value
+            }
+        */
+
+        // using array for such type of information is not understandable and also not clear to reader 
+        var carInfoArr = ["Martin", "2017", 4, "white", 30000];
+
+        // creating our "carObj" object:
+
+        var carObj = {
+            /*
+                Object is based on keys and values:
+
+                Notice that each key-value pair is separated by comma
+
+                A value can be any data type: boolean, function, string, integer and even other objects
+            */
+            owner: "Martin",
+            year: "2017",
+            wheels: 4,
+            km: 30000,
+            name: "speedy",
+            color: "red"
+        }
+
+
+        // console.log(carObj);
+        /*
+            Object
+            color: "White"
+            km: 30000
+            name: "speedy"
+            owner: "Martin"
+            wheels: 4
+            year: 2017
+        */
+        // document.write("<p>This car " + carObj.name + ", it belongs to " + carObj.owner + " the car year model is " + carObj.year + ". Its color is: " + carObj.color + ", " + carObj.wheels + " wheel-drive" + ", and finally they used for " + carObj.km + " km.</p>"); // [object Object]
+
+        /*
+        Task: Declare and Use Object Properties (Book Example)
+        Objective:
+        Create an object named book with the following properties:
+            title (string)
+            author (string)
+            yearPublished (number)
+            genre (string)
+        Then, print each property of the object to the console.
+*/
+
+        // var book2 = {
+        //     title: "The Mystery of the Lost Island",
+        //     author: "Avery Stone",
+        //     yearPublished: 2021,
+        //     genre: "Adventure",
+        //     /*
+        //     methodName: function(/...parameter.../) {
+        //         // Block of code
+        //         return // optional
+        //     }
+        //     */
+        //     getSummaryMethod: function (obj) {
+        //         return `${obj.title} by ${obj.author}, published in ${obj.yearPublished}, is a thrilling ${obj.genre} novel/book`
+        //     },
+        // }
+
+
+        // Method to get or display a summary of the book
+        // - ${book2.title} by ${book2.author}, published in ${book2.yearPublished}, is a thrilling ${book2.genre} novel/book
+        // Create a function passing object as parameter and returning summary sentence.
+        // function getSummary(obj) {
+        //     return `${obj.title} by ${obj.author}, published in ${obj.yearPublished}, is a thrilling ${obj.genre} novel/book`
+        // }
+        // Triggering the function
+        // console.log(book2.getSummaryMethod(book2));
+
+        /*
+            - Feature request
+            You are building a library system and you need to used or check if the book is considered a modern release book or not ?
+            e.g. If a book is published within the last 5 years that is consider as modern release
+
+            yearPublished - this have data in the object 
+            currentYear - 
+            currentYear - obj.yearPublished <= 5
+        */
+
+
+        // document.write(`<h2>Book Information </h2>`);
+        // document.write("<ul>");
+        // document.write("<li>Title: " + book.title + "</li>");
+        // document.write("<li>Author: " + book.author + "</li>");
+        // document.write("<li>Year Published: " + book.yearPublished + "</li>");
+        // document.write("<li>Genre: " + book.genre + "</li>");
+        // document.write("</ul>");
+
+
+        /*
+            "Date" object
+
+            Like any object, Date object has properties and methods()
+
+            Properties and Methods of the "Date" object:
+
+            The following methods for retrieving date values from Date object
+            - getDate()
+            - getDay()
+            - getMonth()
+            - getFullYear()
+
+        */
+        var currentYear = new Date().getFullYear();
+        var bookArr = [{ // Array of objects
+            title: "The Mystery of the Lost Island",
+            author: "Avery Stone",
+            yearPublished: 2021,
+            genre: "Adventure",
+            isModernRelease: function () {
+                if (currentYear - this.yearPublished <= 5) {
+                    return true
+                }
+                return false
+            }
+        }, {
+            title: "Echoes of Tomorrow",
+            author: "Lena Rivers",
+            yearPublished: 2019,
+            genre: "Science Fiction",
+            isModernRelease: function () {
+                if (currentYear - this.yearPublished <= 5) {
+                    return true
+                }
+                return false
+            }
+        }, {
+            title: "Whispers in the Library",
+            genre: "Mystery",
+            author: "Caleb Frost",
+            yearPublished: 2023,
+            isModernRelease: function () {
+                if (currentYear - this.yearPublished <= 5) {
+                    return true
+                }
+                return false
+            }
+        },
+        {
+            author: "Mira Lane",
+            genre: "Philosophy",
+            yearPublished: 2018,
+            title: "The Art of Stillness",
+            isModernRelease: function () {
+                if (currentYear - this.yearPublished <= 5) {
+                    return true
+                }
+                return false
+            }
+        }
+
+        ]
+
+
+        // Create table header
+        // document.write("<table border='1' cellpadding='10'>");
+        // document.write("<tr><th>#</th><th>Title</th><th>Author</th><th>Year Published</th><th>Genre</th><th>Modern Release</th></tr>");
+
+        // // Loop through books and add rows
+        // for (var i = 0; i < bookArr.length; i++) {
+        //     var book = bookArr[i];
+
+        //     document.write("<tr>");
+        //     document.write("<td>" + (i + 1) + "</td>");
+        //     document.write("<td>" + book.title + "</td>");
+        //     document.write("<td>" + book.author + "</td>");
+        //     document.write("<td>" + book.yearPublished + "</td>");
+        //     document.write("<td>" + book.genre + "</td>");
+        //     // What is this ? I am calling method of book
+        //     if (book.isModernRelease()) {
+        //         document.write("<td>" + ("✔️") + "</td>");
+        //     } else {
+        //         document.write("<td>" + ("❌") + "</td>");
+        //     }
+        //     document.write("</tr>");
+        // }
+
+        // document.write("</table>");
+
+        /*
+            We did 3 things 
+            - How to create a method ? 
+            - What is "this" keyword ?
+            - What is "Date" object ? // Will cover tomorrow
+
+            To access any object property => object.propertyName
+
+            e.g. book.title
+
+            To access any object members (properties/methods) within this object itself 
+
+            We need to use a JS keyword "this" (lowercase)
+
+            (its better than using the object name itself)
+        */
+
+
+        // var book3 = {
+        //     title: "The Mystery of the Lost Island",
+        //     author: "Avery Stone",
+        //     yearPublished: 2021,
+        //     genre: "Adventure",
+        //     /*
+        //     methodName: function(/...parameter.../) {
+        //         // Block of code
+        //         return // optional
+        //     }
+        //     */
+        //     getSummaryMethod: function () {
+        //         // using JS ` literal Template
+        //         // we can ignore the ' or " and just warp our entire text with ` first
+        //         // wrap every variable with { } with the symbol of $ => ${variableName}
+        //         return `${this.title} by ${this.author}, published in ${this.yearPublished}, is a thrilling ${this.genre} novel/book`
+        //     },
+        //     displayOnScreen: function () {
+        //         document.write(this.getSummaryMethod());
+        //     }
+        // }
+        // console.log(book3.getSummaryMethod())
+        // book3.displayOnScreen();
+
+        // The magic of the keyword "this" in JS
+        console.log("Hello for the first time!");
+        window.console.log("Hello for the first time!");
+        // "this": The global object of JavaScript that refers to the "window" object
+        this.console.log("Hello for the first time!");
+        /*
+        alert()
+        window.alert();
+        this.alert();
+        */
+        document.write();
+        window.document.write();
+        // or:
+        this.document.write();
+        console.log(this);
+
+
+
+
+
+        // objects can have objects:
+        let tree = {
+            specie: "olive tree",
+            age: 101,
+            location: "Zadar",
+            height: 30,
+            // adding another property named "leaves"
+            // leaves has two key=value pair: amount of leaves and the color of leaves
+            // leaves as a property for tree object has two inner properties: amount and color
+            leaves: {
+                amount: 1000,
+                color: "green",
+            }
+        }
+        //         📝 Task: Add a method named show to the leaves object
+        // Task Description: Add a method called show inside the leaves object that logs the following message to the console:
+        // This tree "olive tree" has 1000 leaves with green color.
+        // Hint: You must access the properties using tree.specie, tree.leaves.amount, and tree.leaves.color because this inside leaves won't refer to the tree object.
+        // Would you like me to turn this into a coding exercise or quiz format for practice?
+        tree.leaves.show();
+    </script>
+</body>
+
+</html>
