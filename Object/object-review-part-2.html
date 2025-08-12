@@ -341,6 +341,9 @@
             leaves: {
                 amount: 1000,
                 color: "green",
+                show: function () {
+                    console.log(`This tree "${tree.specie}" has ${this.amount} leaves with ${this.color} color.`)
+                }
             }
         }
         //         📝 Task: Add a method named show to the leaves object
@@ -348,6 +351,11 @@
         // This tree "olive tree" has 1000 leaves with green color.
         // Hint: You must access the properties using tree.specie, tree.leaves.amount, and tree.leaves.color because this inside leaves won't refer to the tree object.
         // Would you like me to turn this into a coding exercise or quiz format for practice?
+
+
+
+
+
         tree.leaves.show();
     </script>
 </body>
