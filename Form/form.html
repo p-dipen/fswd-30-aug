@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-DOM-2</title>
+</head>
+
+<body>
+    <div class="main-content">
+        <h1 id="first">Simple Calculations</h1>
+        <form id="main-form">
+            <label for="number">Enter any numeric value</label>
+            <input type="text" name="number" id="number" size="15" maxlength="10">
+            <div>
+                <input type="button" value="Submit1" onclick="checkNumber1()" />
+                <br>
+            </div>
+        </form>
+        <span id="showText">Input box is not currently focused</span>
+    </div>
+    <script src="form.js"></script>
+</body>
+
+</html>
