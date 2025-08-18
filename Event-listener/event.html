@@ -11,14 +11,17 @@
 
     <!-- I want to trigger both function parallel -->
     <!-- Method 1 -->
-    <!-- <button onclick="firstEvent();secondEvent();" id="button">Click me</button> -->
-    <button id="button">Click me</button>
+    <button onclick="firstEvent();secondEvent();" id="button">Click me</button>
+    <!-- <button id="button">Click me</button> -->
+    <button id="button2">Click me</button>
 
+    <div></div>
     <script>
+
         function firstEvent() {
-            console.log("first event handler");
-            console.log("Wait for 5 seconds");
-            sleepSync(5000)
+            console.log("Needs to be executed only when click is trigger first event handler");
+            console.log("Needs to be executed only when click is trigger  Wait for 1 seconds");
+            sleepSync(1000)
         }
 
         function secondEvent() {
@@ -35,23 +38,25 @@
 
         // Method 2 :
         var btn = document.getElementById("button");
+        var btn2 = document.getElementById("button2");
         // // Assign a function onclick
         // btn.onclick = firstEvent;
         // // This is override the assigned value
         // btn.onclick = secondEvent;
 
         // Second Option
-        window.onload = function () {
-            firstEvent();
-        }
+        // window.onload = function () {
+        //     firstEvent();
+        // }
 
-        // First options
-        secondEvent();
+        // // First options
+        // secondEvent();
 
 
         // Method 3:
-        btn.addEventListener("click", firstEvent);
-        btn.addEventListener("click", secondEvent);
+        // btn.addEventListener("click", firstEvent);
+        // btn2.addEventListener("click", firstEvent);
+        // btn.addEventListener("click", secondEvent);
         console.log("End of the script");
     </script>
 </body>

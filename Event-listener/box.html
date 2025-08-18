@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Over Box</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">Hover me</div>
+
+    <script>
+        const box = document.getElementById("box");
+
+        box.addEventListener("mouseover", function () {
+            box.style.backgroundColor = "orange";
+            box.innerText = "Hello!";
+        });
+
+        box.addEventListener("mouseout", function () {
+            box.style.backgroundColor = "lightblue";
+            box.innerText = "Out of box! Hover me again";
+        });
+
+        box.addEventListener("click", function () {
+            box.style.backgroundColor = "red";
+            box.innerText = "You click on box";
+        })
+    </script>
+
+</body>
+
+</html>
