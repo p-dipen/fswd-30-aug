@@ -18,7 +18,7 @@ inputBox.onblur = function () {
   document.getElementById('showText').innerText =
     'Input box is not currently focused';
 };
-
+// Method 1
 inputBox.onkeypress = isNumberKey;
 
 function isNumberKey(event) {
