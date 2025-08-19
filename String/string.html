@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <style>
+        /* First is targeting elements which have same name of class attribute*/
+        .header {
+            background-color: red;
+            color: white;
+        }
+
+        /* Second is targeting element which have same name of id attribute */
+        #header {
+            background-color: blue;
+            color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">Hello Ruaa</div>
+    <div id="header">Hello dipen</div>
+    <div class="header">Hello Ryan</div>
+    <div class="header">Hello Mohammad</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <span></span>
+
+    <script>
+        var header = document.getElementById("header").innerText;
+        console.log("Debugging header variable before ---- ", header);
+        header = header.replace("Hello", "Hi");
+        console.log("Debugging header variable after ---- ", header);
+
+
+
+
+
+
+
+        // cat, catalog, catapult, catfish, catwalk, catnip, caterpillar, catacomb, catastrophe, category
+        // All words that start with "cat"
+
+        var strcat = "educator, cat,  catalog, catapult, catfish, catwalk, catnip, caterpillar, catacomb, catastrophe, category";
+        var arrStr = strcat.split(",");
+        for (let i = 0; i < arrStr.length; i++) {
+            var tempStr = arrStr[i];
+            tempStr = tempStr.trim(" ");
+            if (tempStr.search(/^cat/) > -1) {
+                console.log("This words start with cat = ", tempStr);
+            } else {
+                console.log("This is not words start with cat = ", tempStr);
+            }
+        }
+        console.log(strcat.match(/cat/gi))
+
+    </script>
+</body>
+
+</html>
