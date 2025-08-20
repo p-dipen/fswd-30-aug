@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Interacting</title>
+</head>
+
+<body>
+    <h1>Form Header</h1>
+    <form name="myForm" id="myForm" onsubmit="userInfo(); return false;">
+        <div>
+            <label>
+                Full Name:
+                <input type="text" name="fname" value="dipen" id="fullname" required>
+            </label><br>
+            <label>
+                Your email:
+                <input type="email" name="email" value="dipen@gmail.com" required>
+            </label><br>
+            <label>
+                Your message:
+                <textarea name="message" value="Default">Default</textarea>
+            </label>
+        </div>
+        <div>
+            Gender:
+            <label for="male">
+                <input type="radio" name="gender" checked value="m" id="male" />Male
+            </label>
+            <label for="female">
+                <input type="radio" name="gender" value="f" id="female" />female
+            </label>
+            <label for="other">
+                <input type="radio" name="gender" value="o" id="other" />other
+            </label>
+        </div>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+    </form>
+    <!-- Displaying all the information after submitting the form -->
+    <div>
+        Full Name: <span id="fname"></span><br>
+        Email : <span id="email"></span><br>
+        TextMessage : <span id="message"></span><br>
+        gender : <span id="gender"></span>
+    </div>
+    <script>
+
+        /* 
+            Let me break it down:
+
+            / ... / → the regex delimiters (in many languages like JavaScript, not always required).
+
+            ^ → asserts the start of the string.
+
+            [A-Za-z ] → matches a single letter, uppercase A–Z or lowercase a–z or " ".
+
+            + → means "one or more" of the preceding character class.
+
+            $ → asserts the end of the string.
+        */
+
+        // var fullName = document.getElementById("fullname");
+        // function captureOnKeyUp() {
+        //     console.log("FullName current value == ", fullName.value);
+        //     if (fullNameRegex.test(fullName.value)) {
+        //         fullName.style.border = "3px solid green";
+        //     } else {
+        //         fullName.style.border = "3px solid red";
+        //     }
+        // }
+        // fullName.addEventListener("keyup", captureOnKeyUp)
+
+        function userInfo() {
+            // alert("test");
+            var myForm = document.myForm;
+            // console.log(myForm)
+            // var fullName = document.getElementById("fullname");
+            console.log(myForm.fname.value);
+            console.log(myForm.email.value);
+            console.log(myForm.message.value);
+
+            // Beside the HTML 5 required attribute:
+            /*
+                 we can scan the fullName value to check if it's empty or not?
+                 we write our custom validation because we didn't use "required"
+                 notice that using "required" attribute will useless for this form as there no submit button
+                */
+            var fullNameRegex = /^[A-Za-z ]+$/;
+            if (fullNameRegex.test(myForm.fname.value)) {
+                myForm.fname.style.border = '3px solid green';
+            } else {
+                myForm.fname.style.border = '3px solid red';
+                myForm.fname.focus();
+                return;
+            }
+
+            //  Email Regex 
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+            if (emailRegex.test(myForm.email.value)) {
+                myForm.email.style.border = '3px solid green';
+            } else {
+                myForm.email.style.border = '3px solid red';
+                myForm.email.focus();
+                return;
+            }
+            document.getElementById("fname").innerText = myForm.fname.value;
+            document.getElementById("email").innerText = myForm.email.value;
+            document.getElementById("gender").innerText = myForm.gender.value;
+            document.getElementById("message").innerText = myForm.message.value;
+
+
+            console.log("Successfully submitted the form");
+            alert("Successfully submitted the form");
+            myForm.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
