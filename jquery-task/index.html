@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>jQuery Selectors Task</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+sBodwXUME6E0du+kfz6zOcdNfqwKXmxH3MIBQA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         .highlight {
             background-color: yellow;
@@ -23,43 +23,65 @@
     <p class="intro">Intro paragraph 2</p>
     <p>Regular paragraph</p>
     <ul>
-        <li>List item A</li>
-        <li class="special">List item B</li>
+        <li id="list">List item A</li>
+        <li class="target special">List item B</li>
         <li>List item C</li>
     </ul>
-    <a href="#" target="_blank">External Link</a>
+    <ul>
+        <li id="list">List item E</li>
+        <li class="target special">List item F</li>
+        <li>List item G</li>
+    </ul>
+    <a target="_blank">External Link</a>
     <a href="#section">Internal Link</a>
     <button id="action-btn">Start</button>
     <script>
-        /*
-        Your Challenge
+        $(document).ready(function () {
+            $('#action-btn').click(function () {
+                // 1. Change the text color of all <p> elements to blue.
+                $('p').css("color", "blue");
+                // 2. Add the .highlight class (yellow background) to all elements with class intro.
+                $('.intro').addClass("highlight");
+                // 3.Hide the element with ID main-title.
+                $("#main-title").hide();
+                // 4. Make the link with target="_blank" open in a new tab (e.g., set its href to https://www.example.com).
+                // <a href="#" target="_blank" href="" >External Link</a>
+                $("a[target='_blank']").attr("href", "https://www.example.com");
+                // 5. For list items inside the <ul>, select only those with class special and make their text italic.
+                $("ul li.special").css("font-style", "italic");
 
-        Use jQuery to respond to the button click and apply these manipulations:
+            })
+            /*
+                    Your Challenge
+            
+                    Use jQuery to respond to the button click and apply these manipulations:
+            
+                    Select by tag:
+            
+                    Change the text color of all <p> elements to blue.
+                        
+                    Select by class:
+            
+                    Add the .highlight class (yellow background) to all elements with class intro.
+            
+                    Select by ID:
+            
+                    Hide the element with ID main-title.
+            
+                    Select by attribute:
+            
+                    Make the link with target="_blank" open in a new tab (e.g., set its href to https://www.example.com).
+            
+                    Select by combination selector:
+            
+                    For list items inside the <ul>, select only those with class special and make their text italic.
+            
+                    Select with pseudo-selector:
+            
+                    Hide the first list item in the list using the :first selector.
+                    */
+        })
 
-        Select by tag:
-
-        Change the text color of all <p> elements to blue.
-
-        Select by class:
-
-        Add the .highlight class (yellow background) to all elements with class intro.
-
-        Select by ID:
-
-        Hide the element with ID main-title.
-
-        Select by attribute:
-
-        Make the link with target="_blank" open in a new tab (e.g., set its href to https://www.example.com).
-
-        Select by combination selector:
-
-        For list items inside the <ul>, select only those with class special and make their text italic.
-
-        Select with pseudo-selector:
-
-        Hide the first list item in the list using the :first selector.
-        */
     </script>
 </body>
 
