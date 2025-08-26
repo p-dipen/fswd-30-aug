@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+    <h1>XMLRequest</h1>
+    <button onclick="xmlLoad()">Request</button>
+    <p id="output"></p>
+    <script>
+        function xmlLoad() {
+            // Syntax to create a instance of XMLHttpRequest Object
+            let xhr = new XMLHttpRequest();
+            // The XMLHttpRequest method **`open()`** initializes a newly-created request, or re-initializes an existing one.
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1');
+            // The XMLHttpRequest method **`send()`** sends the request to the server.
+            xhr.send();
+
+            xhr.onload = function () {
+                if (xhr.status != 200) {
+                    alert(`Error ${xhr.status}: ${xhr.statusText}`);
+                } else {
+                    document.getElementById("output").innerText = xhr.response;
+                    alert(`Done, got ${xhr.response.length} bytes`);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
