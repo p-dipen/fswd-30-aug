@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XMLHttpRequest</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>XMLRequest</h1>
-    <button onclick="xmlLoad()">Request</button>
+    <h1>XMLRequest vs Jquery Ajax</h1>
+    <button onclick="xmlLoad()">Request with XHR</button>
+    <button onclick="jqueryLoad()">Request with jQuery</button>
     <p id="output"></p>
     <script>
         function xmlLoad() {
             // Syntax to create a instance of XMLHttpRequest Object
             let xhr = new XMLHttpRequest();
             // The XMLHttpRequest method **`open()`** initializes a newly-created request, or re-initializes an existing one.
-            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1');
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts?limit=100');
             // The XMLHttpRequest method **`send()`** sends the request to the server.
             xhr.send();
 
@@ -28,6 +31,29 @@
                     alert(`Done, got ${xhr.response.length} bytes`);
                 }
             }
+
+            xhr.onprogress = function (event) {
+                if (event.lengthComputable) {
+                    alert(`Received ${event.loaded} of ${event.total} bytes`);
+                } else {
+                    alert(`Received ${event.loaded} bytes`);
+                }
+            }
+        }
+        function jqueryLoad() {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/posts?limit=100',
+                method: 'GET',
+                beforeSend: function () {
+                    $("#output").text("Loading...")
+                },
+                success: function (data) {
+                    $("#output").text(JSON.stringify(data, null, 2));
+                },
+                error: function (xhr, status, error) {
+                    $("#output").text(`Error ${xhr.status}: ${error}`)
+                }
+            })
         }
     </script>
 </body>
